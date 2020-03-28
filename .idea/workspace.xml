@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="" />
+    <list default="true" id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
@@ -15,6 +21,7 @@
     <option name="directoryName" value="oyjfw9un" />
   </component>
   <component name="ProjectId" id="1Zm50N34gxK0Gp6EnDC2u9yDmlc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -57,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585431204526</updated>
-      <workItem from="1585431205815" duration="1092000" />
+      <workItem from="1585431205815" duration="1202000" />
     </task>
     <servers />
   </component>
@@ -70,22 +77,22 @@
     <proxy>direct</proxy>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="364" key="GridCell.Tab.0.bottom" timestamp="1585432311284">
+    <state width="1493" height="364" key="GridCell.Tab.0.bottom" timestamp="1585432334020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585432311284" />
-    <state width="1493" height="364" key="GridCell.Tab.0.center" timestamp="1585432311284">
+    <state width="1493" height="364" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585432334020" />
+    <state width="1493" height="364" key="GridCell.Tab.0.center" timestamp="1585432334020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585432311284" />
-    <state width="1493" height="364" key="GridCell.Tab.0.left" timestamp="1585432311284">
+    <state width="1493" height="364" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585432334020" />
+    <state width="1493" height="364" key="GridCell.Tab.0.left" timestamp="1585432334020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585432311284" />
-    <state width="1493" height="364" key="GridCell.Tab.0.right" timestamp="1585432311284">
+    <state width="1493" height="364" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585432334020" />
+    <state width="1493" height="364" key="GridCell.Tab.0.right" timestamp="1585432334020">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585432311284" />
+    <state width="1493" height="364" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585432334020" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1585431963957">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
