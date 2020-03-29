@@ -11,17 +11,20 @@ type Server interface {
 }
 
 type ErrHandler func(err error)
-type TcpHandler func(con net.Conn, errHandler ErrHandler)
+
+type TcpHandler interface {
+	Handle(con net.Conn, errHandler *ErrHandler)
+}
 
 type TcpServer struct {
 	port       int
-	handler    TcpHandler
-	errHandler ErrHandler
+	handler    *TcpHandler
+	errHandler *ErrHandler
 	stopChan   chan bool
 	Resilient  bool
 }
 
-func NewTcpServer(port int, handler TcpHandler, errHandler ErrHandler) Server {
+func NewTcpServer(port int, handler *TcpHandler, errHandler *ErrHandler) Server {
 	return &TcpServer{
 		port:       port,
 		handler:    handler,
@@ -41,19 +44,19 @@ func (t TcpServer) Stop() {
 	t.stopChan <- true
 }
 
-func (t TcpServer) startAsyncTcpRequestHandler(port int, errHandler ErrHandler) {
+func (t TcpServer) startAsyncTcpRequestHandler(port int, errHandler *ErrHandler) {
 	tcpListener, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
-		errHandler(err)
+		(*errHandler)(err)
 	}
 	go t.handleTcpRequestAsync(tcpListener, errHandler)
 }
 
-func (t TcpServer) handleTcpRequestAsync(listener net.Listener, errHandler ErrHandler) {
+func (t TcpServer) handleTcpRequestAsync(listener net.Listener, errHandler *ErrHandler) {
 	for {
 		con, err := listener.Accept()
 		if err != nil {
-			errHandler(err)
+			(*errHandler)(err)
 			if !t.Resilient {
 				t.Stop()
 			}
@@ -62,7 +65,7 @@ func (t TcpServer) handleTcpRequestAsync(listener net.Listener, errHandler ErrHa
 	}
 }
 
-func (t TcpServer) handlerWrapper(con net.Conn, handler ErrHandler) {
-	t.handler(con, handler)
-	handler(con.Close())
+func (t TcpServer) handlerWrapper(con net.Conn, handler *ErrHandler) {
+	(*t.handler).Handle(con, handler)
+	(*handler)(con.Close())
 }
