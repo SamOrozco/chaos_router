@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chaos_router/chaos_router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chaos_rule/SuccessRule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chaos_rule/chaos_rule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/http_util/http.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/http_util/http_parser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing_rules/header_rule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing_rules/path_rule.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing_rules/routing_rules.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing_rules/rule_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routing_rules/tcp_parser_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tcp_server/tcp_util.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/arrays.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/matcher.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaos_rule/bad_request_rule.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/listener.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tcp_client/tcp_client.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos_router/chaos_router.go" beforeDir="false" afterPath="$PROJECT_DIR$/chaos_router/chaos_router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos_rule/SuccessRule.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tcp_server/tcp_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp_server/tcp_server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcp_server/tcp_util.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp_server/tcp_util.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +61,7 @@
       <recent name="C:\Users\samue\projects\go_chaos\tcp_server" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestNewHeaderEqualRuleApplies in go_chaos/routing_rules">
+  <component name="RunManager" selected="Go Build.go build go_chaos">
     <configuration name="go build go_chaos" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_chaos" />
       <working_directory value="$PROJECT_DIR$" />
@@ -124,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build go_chaos" />
         <item itemvalue="Go Test.TestNewHeaderEqualRuleApplies in go_chaos/routing_rules" />
         <item itemvalue="Go Test.TestNewPathRule in go_chaos/chaos_router" />
         <item itemvalue="Go Test.TestTcpHttpParser_ParseHeaders in go_chaos/chaos_router" />
         <item itemvalue="Go Test.TestTcpHttpParser_ParsePath in go_chaos/chaos_router" />
-        <item itemvalue="Go Build.go build go_chaos" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +133,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585431204526</updated>
       <workItem from="1585431205815" duration="4541000" />
-      <workItem from="1585456661959" duration="5970000" />
+      <workItem from="1585456661959" duration="9946000" />
     </task>
     <servers />
   </component>
@@ -157,50 +150,58 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1585434478485" />
+    <state x="496" y="49" key="#go_build_go_chaos" timestamp="1585463325513">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="496" y="49" key="#go_build_go_chaos/0.0.1536.824@0.0.1536.824" timestamp="1585463325513" />
     <state x="524" y="115" key="#xdebugger.evaluate" timestamp="1585457492828">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="524" y="115" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1585457492828" />
-    <state width="1493" height="171" key="GridCell.Tab.0.bottom" timestamp="1585462079733">
+    <state width="1493" height="275" key="GridCell.Tab.0.bottom" timestamp="1585513678551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="171" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585462079733" />
-    <state width="1493" height="171" key="GridCell.Tab.0.center" timestamp="1585462079732">
+    <state width="1493" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585513678551" />
+    <state width="1493" height="275" key="GridCell.Tab.0.center" timestamp="1585513678551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="171" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585462079732" />
-    <state width="1493" height="171" key="GridCell.Tab.0.left" timestamp="1585462079732">
+    <state width="1493" height="275" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585513678551" />
+    <state width="1493" height="275" key="GridCell.Tab.0.left" timestamp="1585513678551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="171" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585462079732" />
-    <state width="1493" height="171" key="GridCell.Tab.0.right" timestamp="1585462079732">
+    <state width="1493" height="275" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585513678551" />
+    <state width="1493" height="275" key="GridCell.Tab.0.right" timestamp="1585513678551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="171" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585462079732" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1585457513627">
+    <state width="1493" height="275" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585513678551" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1585465244961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585457513627" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1585457513627">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585465244961" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1585465244961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585457513627" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1585457513627">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585465244961" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1585465244961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585457513627" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1585457513627">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585465244961" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1585465244961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585457513627" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585465244961" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1585456680037">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585456680037" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585459975382">
+    <state x="209" y="55" key="new project wizard" timestamp="1585513643744">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585459975382" />
+    <state x="209" y="55" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1585513643744" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585464382934">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585464382934" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -209,6 +210,16 @@
           <url>file://$PROJECT_DIR$/routing_rules/tcp_parser_test.go</url>
           <line>36</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/chaos_router/chaos_router.go</url>
+          <line>80</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/tcp_server/tcp_server.go</url>
+          <line>71</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

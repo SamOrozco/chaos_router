@@ -22,6 +22,7 @@ type TcpServer struct {
 	errHandler *ErrHandler
 	stopChan   chan bool
 	Resilient  bool
+	AutoClose  bool
 }
 
 func NewTcpServer(port int, handler *TcpHandler, errHandler *ErrHandler) Server {
@@ -31,6 +32,7 @@ func NewTcpServer(port int, handler *TcpHandler, errHandler *ErrHandler) Server 
 		errHandler: errHandler,
 		stopChan:   make(chan bool, 0),
 		Resilient:  true,
+		AutoClose:  false,
 	}
 }
 
@@ -67,5 +69,7 @@ func (t TcpServer) handleTcpRequestAsync(listener net.Listener, errHandler *ErrH
 
 func (t TcpServer) handlerWrapper(con net.Conn, handler *ErrHandler) {
 	(*t.handler).Handle(con, handler)
-	(*handler)(con.Close())
+	if t.AutoClose {
+		(*handler)(con.Close())
+	}
 }
