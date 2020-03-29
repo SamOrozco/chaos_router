@@ -6,13 +6,13 @@ type DebugTcpHandler struct {
 	response string
 }
 
+func NewDebugTcpHandler(response string) TcpHandler {
+	return &DebugTcpHandler{response: response}
+}
+
 func (d DebugTcpHandler) Handle(con net.Conn, errHandler *ErrHandler) {
 	println(ReadTcpRequestAsString(con))
 	con.Write([]byte(d.response))
-}
-
-func NewDebugTcpHandler(response string) TcpHandler {
-	return &DebugTcpHandler{response: response}
 }
 
 var DebugErrHandler ErrHandler = func(err error) {
