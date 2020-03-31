@@ -62,10 +62,10 @@ Chaos rule configurations are rules that will inject the specified response code
 
 ```json
 {
-      "percent": 10,
-      "response_status_code": 200,
-      "ResponseBody": "success"
-    }
+    "percent": 10,
+    "response_status_code": 200,
+    "ResponseBody": "success"
+}
 ```
 **percent** = 10 times out of maxPossibilities return the specified status code and body
 
@@ -87,24 +87,24 @@ directly writes the routed servers response to the requester, as if nothing happ
 The routing request consists of two objects, the match and the route.
 ```json
 {
-      "match": {
+    "match": {
         "type": "path",
         "match_value": "/my-ws/collection/",
         "match_type": "equals"
-      },
-      "route": {
+    },
+    "route": {
         "host": "192.168.0.34",
         "port": 9001
-      }
     }
+}
 ```
 
 **Route**
 ```json
 {
-        "host": "192.168.0.34",
-        "port": 9001
-      }
+    "host": "192.168.0.34",
+    "port": 9001
+}
 ```
 **host** = host the request will be routed to
 
@@ -116,20 +116,20 @@ The routing request consists of two objects, the match and the route.
 Path Matcher config
 ```json
 {
-        "type": "path",
-        "match_value": "/my-ws/collection/",
-        "match_type": "equals"
-      }
+    "type": "path",
+    "match_value": "/my-ws/collection/",
+    "match_type": "equals"
+}
 ```
 
 Header Matcher Config
 ```json
 {
-        "type": "path",
-        "match_value": "json_v2",
-        "match_type": "equals", 
-        "header_key": "Content-type"
-      }
+    "type": "path",
+    "match_value": "json_v2",
+    "match_type": "equals",
+    "header_key": "Content-type"
+}
 ```
 **type** = the type of matching you want to do (Path or header)
 
