@@ -99,7 +99,7 @@ The routing request consists of two objects, the match and the route.
     }
 ```
 
-Route
+**Route**
 ```json
 {
         "host": "192.168.0.34",
@@ -111,7 +111,7 @@ Route
 **port** = port to route the request to
 
 
-Match
+**Match**
 
 Path Matcher config
 ```json
