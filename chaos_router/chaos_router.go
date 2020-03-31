@@ -99,7 +99,9 @@ func (c *ChaosRouter) initIfNeeded() {
 		offset := 0
 		for i := range c.chaosRules {
 			currentRule := c.chaosRules[i]
-			FillTcpHandlerArray(offset, currentRule.Percentage(), handlersByPercent, currentRule)
+			percent := currentRule.Percentage()
+			FillTcpHandlerArray(offset, offset+percent, handlersByPercent, currentRule)
+			offset = percent
 		}
 		c.handlers = handlersByPercent
 		c.handlerLength = len(c.handlers)

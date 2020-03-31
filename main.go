@@ -8,7 +8,7 @@ import (
 func main() {
 	config := config2.ChaosRouterConfig{
 		Port:             9001,
-		MaxPossibilities: 1000,
+		MaxPossibilities: 100,
 		RoutingRulesConfigs: []config2.RoutingRuleConfig{
 			{
 				Match: config2.MatchConfig{
@@ -33,11 +33,18 @@ func main() {
 				},
 			},
 		},
-		ChaosRuleConfigs: []config2.ChaosRuleConfig{{
-			Percent:            900,
-			ResponseStatusCode: 200,
-			ResponseBody:       "success",
-		}},
+		ChaosRuleConfigs: []config2.ChaosRuleConfig{
+			{
+				Percent:            50,
+				ResponseStatusCode: 200,
+				ResponseBody:       "success",
+			},
+			{
+				Percent:            50,
+				ResponseStatusCode: 400,
+				ResponseBody:       "bad request",
+			},
+		},
 	}
 	
 	chaosRouter := config2.CreateChaosRouterFromConfig(config)
