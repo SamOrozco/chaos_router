@@ -68,8 +68,11 @@ Chaos rule configurations are rules that will inject the specified response code
     }
 ```
 **percent** = 10 times out of maxPossibilities return the specified status code and body
+
 **response_status_code** = the status code of the response 
+
 **http_response_body** = raw http response body 
+
 
 This rule states 10 times out of 100(or max possibilities, it could have been anything) the router will return this response to any traffic that comes through it. 
 *Rules might be expanded to be matched on a request similar to routing rules*
@@ -104,7 +107,9 @@ Route
       }
 ```
 **host** = host the request will be routed to
+
 **port** = port to route the request to
+
 
 Match
 
@@ -127,6 +132,9 @@ Header Matcher Config
       }
 ```
 **type** = the type of matching you want to do (Path or header)
+
 **match_value** = the value you're matching on
+
 **match_type** = the type of matching you're doing (Equals or Contains, etc...)
+
 **header_key**(only for header matching) = the header key you would like to match the value on
