@@ -1,5 +1,5 @@
 {
-  "port": 9001,
+  "port": 9002,
   "max_possibilities": 100,
   "routing_rules_configs": [
     {
@@ -46,9 +46,14 @@
       "ResponseBody": "success"
     },
     {
-      "percent": 20,
+      "percent": 10,
       "response_status_code": 400,
       "ResponseBody": "bad request"
+    },
+    {
+      "percent": 70,
+      "response_status_code": 200,
+      "ResponseBody": "<h1>This one</h2>"
     }
   ]
 }
