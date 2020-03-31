@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scripts/build_chaos_router_windows.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/build_chaos_router_windows.bat" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build_chaos_router_windows.bat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1585431204526</updated>
       <workItem from="1585431205815" duration="4541000" />
-      <workItem from="1585456661959" duration="20679000" />
+      <workItem from="1585456661959" duration="20966000" />
     </task>
     <servers />
   </component>
