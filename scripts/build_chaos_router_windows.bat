@@ -1,1 +1,1 @@
-go build -o chaos_route.exe .
+go build -o chaos_router.exe .
