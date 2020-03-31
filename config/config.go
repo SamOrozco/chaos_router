@@ -108,9 +108,20 @@ func getRouteRuleFromConfig(configs []RoutingRuleConfig) []routing_rules.RouteRu
 }
 
 func getStringMatcherFromType(typeString string) util.StringMatcher {
-	// todo this is not an extensible solution
 	if typeString == "contains" || typeString == "cont" {
 		return util.Contains
+	}
+	if typeString == "prefix" || typeString == "pref" {
+		return util.Prefix
+	}
+	if typeString == "suffix" || typeString == "suf" {
+		return util.Suffix
+	}
+	if typeString == "regex" || typeString == "reg" {
+		return util.Regex
+	}
+	if typeString == "regex" || typeString == "reg" {
+		return util.Regex
 	}
 	return util.Equal
 }

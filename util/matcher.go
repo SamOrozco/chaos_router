@@ -1,6 +1,9 @@
 package util
 
-import "strings"
+import (
+	"regexp"
+	"strings"
+)
 
 type StringMatcher func(haystack, needle string) bool
 
@@ -14,4 +17,20 @@ var Equal StringMatcher = func(haystack, needle string) bool {
 
 var Contains StringMatcher = func(haystack, needle string) bool {
 	return strings.Contains(haystack, needle)
+}
+
+var Prefix StringMatcher = func(haystack, needle string) bool {
+	return strings.HasPrefix(haystack, needle)
+}
+
+var Suffix StringMatcher = func(haystack, needle string) bool {
+	return strings.HasSuffix(haystack, needle)
+}
+
+var Regex StringMatcher = func(haystack, needle string) bool {
+	if found, err := regexp.MatchString(needle, haystack); err != nil {
+		return false
+	} else {
+		return found
+	}
 }
