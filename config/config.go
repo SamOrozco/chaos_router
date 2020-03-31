@@ -67,7 +67,15 @@ func getChaosRuleFromConfig(configs []ChaosRuleConfig) []chaos_rule.ChaosRule {
 	if configs == nil || len(configs) == 0 {
 		return nil
 	}
-	return nil
+	
+	result := make([]chaos_rule.ChaosRule, 0)
+	for _, config := range configs {
+		percent := config.Percent
+		responseBody := config.ResponseBody
+		statusCode := config.ResponseStatusCode
+		result = append(result, chaos_rule.NewHttpResponseRule(statusCode, responseBody, percent))
+	}
+	return result
 }
 
 func getRouteRuleFromConfig(configs []RoutingRuleConfig) []routing_rules.RouteRule {

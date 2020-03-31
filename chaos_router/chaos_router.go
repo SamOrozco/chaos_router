@@ -55,11 +55,18 @@ func (c ChaosRouter) Stop() {
 // tcp handler
 func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 	defer con.Close()
+	
+	// we have to read the tcp request before we can write
+	// I am going to read from this request async
+	requestStringChan := tcp_server.ReadTcpRequestAsStringAsync(con)
+	defer close(requestStringChan)
+	
 	c.initIfNeeded()
 	randomInt := rand.Intn(c.handlerLength)
 	if hdl := c.handlers[randomInt]; hdl == nil {
 		// routeRequest
-		tcpRequestString := tcp_server.ReadTcpRequestAsString(con)
+		// wait to finish writing
+		tcpRequestString := <-requestStringChan
 		httpRequest := http_util.NewLazyHttpRequest(tcpRequestString)
 		route := FindRouteRule(httpRequest, c.routingRules)
 		if route == nil {
@@ -78,6 +85,8 @@ func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 			(*errHandler)(err)
 		}
 	} else {
+		// wait to finish writing
+		<-requestStringChan
 		hdl.Handle(con, errHandler)
 	}
 }

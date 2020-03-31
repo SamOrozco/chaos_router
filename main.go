@@ -9,21 +9,34 @@ func main() {
 	config := config2.ChaosRouterConfig{
 		Port:             9001,
 		MaxPossibilities: 1000,
-		RoutingRulesConfigs: []config2.RoutingRuleConfig{{
-			Match: config2.MatchConfig{
-				Type:       "path",
-				MatchValue: "/athena/test",
-				MatchType:  "equals",
+		RoutingRulesConfigs: []config2.RoutingRuleConfig{
+			{
+				Match: config2.MatchConfig{
+					Type:       "path",
+					MatchValue: "/athena/test",
+					MatchType:  "equals",
+				},
+				Route: routing_rules.Route{
+					Host: "192.168.0.34",
+					Port: 9001,
+				},
 			},
-			Route: routing_rules.Route{
-				Host: "192.168.0.34",
-				Port: 9001,
+			{
+				Match: config2.MatchConfig{
+					Type:       "path",
+					MatchValue: "/athena",
+					MatchType:  "equals",
+				},
+				Route: routing_rules.Route{
+					Host: "192.168.0.34",
+					Port: 9002,
+				},
 			},
-		}},
+		},
 		ChaosRuleConfigs: []config2.ChaosRuleConfig{{
-			Percent:            500,
-			ResponseStatusCode: 400,
-			ResponseBody:       "bad request",
+			Percent:            900,
+			ResponseStatusCode: 200,
+			ResponseBody:       "success",
 		}},
 	}
 	
