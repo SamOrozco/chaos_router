@@ -135,6 +135,9 @@ Header Matcher Config
 
 **match_value** = the value you're matching on
 
-**match_type** = the type of matching you're doing (Equals or Contains, etc...)
+**match_type** = the type of matching you're doing (Regex, Prefix, Suffix, Equals, Contains, etc...)
 
 **header_key**(only for header matching) = the header key you would like to match the value on
+
+
+**Config examples can be found in the json directory**
