@@ -1,4 +1,4 @@
-#Golang "Chaos" Router
+# Golang "Chaos" Router
 
 **Go Chaos is a reverse proxy that can add little chaos(disruption) to your applications.**
 
@@ -11,5 +11,5 @@ You need one thing to get started a **configuration file**
 
 
 
-##Configuration file 
+## Configuration file 
 
