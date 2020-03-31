@@ -1,0 +1,35 @@
+{
+  "port": 9002,
+  "max_possibilities": 100,
+  "routing_rules_configs": [
+    {
+      "match": {
+        "type": "path",
+        "match_value": "/my-ws/collection/",
+        "match_type": "equals"
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9001
+      }
+    },
+    {
+      "match": {
+        "type": "path",
+        "match_value": "that-ws",
+        "match_type": "contains"
+      },
+      "route": {
+        "host": "192.168.0.68",
+        "port": 9002
+      }
+    }
+  ],
+  "chaos_rule_configs": [
+    {
+      "percent": 10,
+      "response_status_code": 200,
+      "ResponseBody": "success"
+    }
+  ]
+}
