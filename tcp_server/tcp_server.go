@@ -63,7 +63,7 @@ func (t TcpServer) handleTcpRequestAsync(listener net.Listener, errHandler *ErrH
 				t.Stop()
 			}
 		}
-		go t.handlerWrapper(con, errHandler)
+		t.handlerWrapper(con, errHandler)
 	}
 }
 

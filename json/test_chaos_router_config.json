@@ -1,0 +1,59 @@
+{
+  "port": 9002,
+  "max_possibilities": 100,
+  "routing_rules_configs": [
+    {
+      "match": {
+        "type": "path",
+        "match_value": "/athena/test",
+        "match_type": "equals",
+        "header_key": ""
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9001
+      }
+    },
+    {
+      "match": {
+        "type": "path",
+        "match_value": "/athena",
+        "match_type": "equals",
+        "header_key": ""
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9002
+      }
+    },
+    {
+      "match": {
+        "type": "path",
+        "match_value": "/athena/tester",
+        "match_type": "equals",
+        "header_key": ""
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9002
+      }
+    }
+  ],
+  "chaos_rule_configs": [
+    {
+      "percent": 10,
+      "response_status_code": 200,
+      "ResponseBody": "success"
+    },
+    {
+      "percent": 10,
+      "response_status_code": 400,
+      "ResponseBody": "bad request"
+    },
+    {
+      "percent": 70,
+      "response_status_code": 200,
+      "ResponseBody": "<h1>This one</h2>"
+    }
+  ]
+}

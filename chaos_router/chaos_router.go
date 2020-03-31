@@ -22,15 +22,15 @@ type ChaosRouter struct {
 	errHandler       tcp_server.ErrHandler
 }
 
-func NewChaosRoute(
+func NewChaosRouter(
 	port int,
 	maxPossibilities int,
 	routingRules []routing_rules.RouteRule,
 	chaosRules []chaos_rule.ChaosRule,
 	errHandler tcp_server.ErrHandler,
-) tcp_server.Server {
+) ChaosRouter {
 	rand.Seed(time.Now().UnixNano())
-	return &ChaosRouter{
+	return ChaosRouter{
 		port:             port,
 		maxPossibilities: maxPossibilities,
 		routingRules:     routingRules,
@@ -55,11 +55,18 @@ func (c ChaosRouter) Stop() {
 // tcp handler
 func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 	defer con.Close()
+	
+	// we have to read the tcp request before we can write
+	// I am going to read from this request async
+	requestStringChan := tcp_server.ReadTcpRequestAsStringAsync(con)
+	defer close(requestStringChan)
+	
 	c.initIfNeeded()
 	randomInt := rand.Intn(c.handlerLength)
 	if hdl := c.handlers[randomInt]; hdl == nil {
 		// routeRequest
-		tcpRequestString := tcp_server.ReadTcpRequestAsString(con)
+		// wait to finish writing
+		tcpRequestString := <-requestStringChan
 		httpRequest := http_util.NewLazyHttpRequest(tcpRequestString)
 		route := FindRouteRule(httpRequest, c.routingRules)
 		if route == nil {
@@ -78,6 +85,8 @@ func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 			(*errHandler)(err)
 		}
 	} else {
+		// wait to finish writing
+		<-requestStringChan
 		hdl.Handle(con, errHandler)
 	}
 }
@@ -90,7 +99,9 @@ func (c *ChaosRouter) initIfNeeded() {
 		offset := 0
 		for i := range c.chaosRules {
 			currentRule := c.chaosRules[i]
-			FillTcpHandlerArray(offset, currentRule.Percentage(), handlersByPercent, currentRule)
+			percent := currentRule.Percentage()
+			FillTcpHandlerArray(offset, offset+percent, handlersByPercent, currentRule)
+			offset = percent
 		}
 		c.handlers = handlersByPercent
 		c.handlerLength = len(c.handlers)
