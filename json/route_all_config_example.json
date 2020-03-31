@@ -1,0 +1,24 @@
+{
+  "port": 9001,
+  "max_possibilities": 100,
+  "routing_rules_configs": [
+    {
+      "match": {
+        "type": "path",
+        "match_value": "*",
+        "match_type": "equals"
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9001
+      }
+    }
+  ],
+  "chaos_rule_configs": [
+    {
+      "percent": 10,
+      "response_status_code": 200,
+      "ResponseBody": "success"
+    }
+  ]
+}
