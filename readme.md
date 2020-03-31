@@ -2,7 +2,7 @@
 
 **Go Chaos is a reverse proxy that can add little chaos(disruption) to your applications.**
 
-Go chaos will answer the questions you've been asking about how your resilient you applications are in a distributed environment
+Go chaos will answer the questions you've been asking about how resilient your applications are in a distributed environment
 prone to failures from external services. 
 
 How to run your Go Chaos router binary
