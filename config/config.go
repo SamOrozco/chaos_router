@@ -45,9 +45,9 @@ ResponseBody - response body
 ResponseHeaders - response headers
 */
 type ChaosRuleConfig struct {
-	Percent            int `json:"percent"`
-	ResponseStatusCode int `json:"response_status_code"`
-	ResponseBody       string
+	Percent            int    `json:"percent"`
+	ResponseStatusCode int    `json:"response_status_code"`
+	ResponseBody       string `json:"response_body"`
 }
 
 /**
@@ -91,6 +91,7 @@ func getRouteRuleFromConfig(configs []RoutingRuleConfig) []routing_rules.RouteRu
 		matchConfig := config.Match
 		matchType := matchConfig.Type
 		ruleValue := matchConfig.MatchValue
+		headerKey := matchConfig.HeaderKey
 		
 		// if the value of the matcher is * we are going to route all traffic to this route
 		var stringMatcher util.StringMatcher
@@ -99,9 +100,13 @@ func getRouteRuleFromConfig(configs []RoutingRuleConfig) []routing_rules.RouteRu
 		} else {
 			stringMatcher = getStringMatcherFromType(matchConfig.MatchType)
 		}
+		
+		// ROUTE TYPES
 		matchType = strings.ToLower(matchType)
 		if matchType == "path" {
 			result = append(result, routing_rules.NewPathRule(stringMatcher, ruleValue, route))
+		} else if matchType == "header" {
+			result = append(result, routing_rules.NewHeaderRule(headerKey, ruleValue, stringMatcher, route))
 		}
 	}
 	return result

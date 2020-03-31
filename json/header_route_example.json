@@ -5,8 +5,9 @@
     {
       "match": {
         "type": "path",
-        "match_value": "*",
-        "match_type": "equals"
+        "match_value": "test",
+        "match_type": "regex",
+        "header_key": "test-header"
       },
       "route": {
         "host": "192.168.0.34",
@@ -18,7 +19,7 @@
     {
       "percent": 10,
       "response_status_code": 200,
-      "response_body": "success"
+      "ResponseBody": "success"
     }
   ]
 }

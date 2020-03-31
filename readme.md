@@ -50,7 +50,7 @@ it has a maxPossibilities of 100, it has two routing rules and one chaos rule. A
     {
       "percent": 10,
       "response_status_code": 200,
-      "ResponseBody": "success"
+      "response_body": "success"
     }
   ]
 }
@@ -64,7 +64,7 @@ Chaos rule configurations are rules that will inject the specified response code
 {
     "percent": 10,
     "response_status_code": 200,
-    "ResponseBody": "success"
+    "response_body": "success"
 }
 ```
 **percent** = 10 times out of maxPossibilities return the specified status code and body
