@@ -91,8 +91,14 @@ func getRouteRuleFromConfig(configs []RoutingRuleConfig) []routing_rules.RouteRu
 		matchConfig := config.Match
 		matchType := matchConfig.Type
 		ruleValue := matchConfig.MatchValue
-		stringMatcher := getStringMatcherFromType(matchConfig.MatchType)
 		
+		// if the value of the matcher is * we are going to route all traffic to this route
+		var stringMatcher util.StringMatcher
+		if ruleValue == "*" {
+			stringMatcher = util.All
+		} else {
+			stringMatcher = getStringMatcherFromType(matchConfig.MatchType)
+		}
 		matchType = strings.ToLower(matchType)
 		if matchType == "path" {
 			result = append(result, routing_rules.NewPathRule(stringMatcher, ruleValue, route))

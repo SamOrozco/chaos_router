@@ -4,6 +4,10 @@ import "strings"
 
 type StringMatcher func(haystack, needle string) bool
 
+var All StringMatcher = func(haystack, needle string) bool {
+	return true
+}
+
 var Equal StringMatcher = func(haystack, needle string) bool {
 	return haystack == needle
 }
