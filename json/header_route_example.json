@@ -4,10 +4,10 @@
   "routing_rules_configs": [
     {
       "match": {
-        "type": "path",
-        "match_value": "test",
+        "type": "header",
+        "match_value": "keep",
         "match_type": "regex",
-        "header_key": "test-header"
+        "header_key": "Connection"
       },
       "route": {
         "host": "192.168.0.34",

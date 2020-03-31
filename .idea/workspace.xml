@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/json/header_route_example.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chaos_router.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chaos_router.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chaos_router/chaos_router.go" beforeDir="false" afterPath="$PROJECT_DIR$/chaos_router/chaos_router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/header_route_example.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/header_route_example.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
