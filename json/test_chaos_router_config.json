@@ -1,0 +1,25 @@
+{
+  "port": 9001,
+  "max_possibilities": 1000,
+  "routing_rules_configs": [
+    {
+      "match": {
+        "type": "path",
+        "match_value": "/athena/test",
+        "match_type": "equals",
+        "header_key": ""
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9002
+      }
+    }
+  ],
+  "chaos_rule_configs": [
+    {
+      "percent": 500,
+      "response_status_code": 400,
+      "ResponseBody": "bad request"
+    }
+  ]
+}

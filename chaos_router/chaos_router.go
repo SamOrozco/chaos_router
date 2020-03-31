@@ -22,15 +22,15 @@ type ChaosRouter struct {
 	errHandler       tcp_server.ErrHandler
 }
 
-func NewChaosRoute(
+func NewChaosRouter(
 	port int,
 	maxPossibilities int,
 	routingRules []routing_rules.RouteRule,
 	chaosRules []chaos_rule.ChaosRule,
 	errHandler tcp_server.ErrHandler,
-) tcp_server.Server {
+) ChaosRouter {
 	rand.Seed(time.Now().UnixNano())
-	return &ChaosRouter{
+	return ChaosRouter{
 		port:             port,
 		maxPossibilities: maxPossibilities,
 		routingRules:     routingRules,
