@@ -1,1 +1,0 @@
-go build -o chaos_router.exe .

@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chaos_router/chaos_router.go" beforeDir="false" afterPath="$PROJECT_DIR$/chaos_router/chaos_router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/regex_match_exmaple.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/regex_match_exmaple.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routing_rules/header_rule.go" beforeDir="false" afterPath="$PROJECT_DIR$/routing_rules/header_rule.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routing_rules/path_rule.go" beforeDir="false" afterPath="$PROJECT_DIR$/routing_rules/path_rule.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routing_rules/routing_rules.go" beforeDir="false" afterPath="$PROJECT_DIR$/routing_rules/routing_rules.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/build_chaos_router_windows.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tcp_server/tcp_util.go" beforeDir="false" afterPath="$PROJECT_DIR$/tcp_server/tcp_util.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +33,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -59,8 +57,9 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/json" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -68,22 +67,23 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/json" />
+      <recent name="C:\Users\samue\projects\go_chaos" />
+      <recent name="C:\Users\samue\projects\go_chaos\tcp_server" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\samue\projects\go_chaos\scripts" />
       <recent name="C:\Users\samue\projects\go_chaos\http_util" />
       <recent name="C:\Users\samue\projects\go_chaos\util" />
       <recent name="C:\Users\samue\projects\go_chaos\routing_rules" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\samue\projects\go_chaos" />
-      <recent name="C:\Users\samue\projects\go_chaos\tcp_server" />
-    </key>
   </component>
   <component name="RunManager" selected="Go Build.go build go_chaos">
     <configuration name="go build go_chaos" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go_chaos" />
       <working_directory value="$PROJECT_DIR$" />
-      <parameters value="C:\Users\samue\projects\go_chaos\json\regex_match_exmaple.json" />
+      <parameters value="$PROJECT_DIR$/json/test_tomcat_example.json" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="go_chaos" />
@@ -154,6 +154,9 @@
   <component name="ServiceViewManager">
     <option name="showServicesTree" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="44c8d57b-a92a-478b-974f-f306f5d0d316" name="Default Changelist" comment="" />
@@ -163,6 +166,8 @@
       <updated>1585431204526</updated>
       <workItem from="1585431205815" duration="4541000" />
       <workItem from="1585456661959" duration="21831000" />
+      <workItem from="1585755608183" duration="120000" />
+      <workItem from="1585783138595" duration="106000" />
     </task>
     <servers />
   </component>
@@ -178,14 +183,19 @@
     <proxy>direct</proxy>
   </component>
   <component name="WindowStateProjectService">
+    <state x="496" y="236" key="#GOROOT" timestamp="1585720583430">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="496" y="236" key="#GOROOT/0.0.1792.1120@0.0.1792.1120" timestamp="1585720583430" />
     <state x="361" y="71" key="#Project_Structure" timestamp="1585513855255">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1585513855255" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585719685246">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="260" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585721160925">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585719685246" />
+    <state x="260" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1585721160925" />
     <state x="514" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585627702391">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -198,50 +208,69 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="496" y="49" key="#go_build_go_chaos/0.0.1536.824@0.0.1536.824" timestamp="1585463325513" />
-    <state x="524" y="115" key="#xdebugger.evaluate" timestamp="1585457492828">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="611" y="156" key="#xdebugger.evaluate" timestamp="1585721394288">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="524" y="115" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1585457492828" />
-    <state width="1493" height="196" key="GridCell.Tab.0.bottom" timestamp="1585720018061">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="611" y="156" key="#xdebugger.evaluate/0.0.1792.1120@0.0.1792.1120" timestamp="1585721394288" />
+    <state width="1750" height="391" key="GridCell.Tab.0.bottom" timestamp="1585754900510">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585720018061" />
-    <state width="1493" height="196" key="GridCell.Tab.0.center" timestamp="1585720018061">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1585721505970" />
+    <state width="1750" height="391" key="GridCell.Tab.0.bottom/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900510" />
+    <state width="1750" height="391" key="GridCell.Tab.0.center" timestamp="1585754900509">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585720018061" />
-    <state width="1493" height="196" key="GridCell.Tab.0.left" timestamp="1585720018061">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1585721505969" />
+    <state width="1750" height="391" key="GridCell.Tab.0.center/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900509" />
+    <state width="1750" height="391" key="GridCell.Tab.0.left" timestamp="1585754900508">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585720018061" />
-    <state width="1493" height="196" key="GridCell.Tab.0.right" timestamp="1585720018061">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1585721505968" />
+    <state width="1750" height="391" key="GridCell.Tab.0.left/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900508" />
+    <state width="1750" height="391" key="GridCell.Tab.0.right" timestamp="1585754900510">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585720018061" />
-    <state width="1493" height="196" key="GridCell.Tab.1.bottom" timestamp="1585720018062">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1585721505970" />
+    <state width="1750" height="391" key="GridCell.Tab.0.right/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900510" />
+    <state width="1750" height="391" key="GridCell.Tab.1.bottom" timestamp="1585754900514">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585720018062" />
-    <state width="1493" height="196" key="GridCell.Tab.1.center" timestamp="1585720018062">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="391" key="GridCell.Tab.1.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1585721470002" />
+    <state width="1750" height="391" key="GridCell.Tab.1.bottom/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900514" />
+    <state width="1750" height="391" key="GridCell.Tab.1.center" timestamp="1585754900513">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1585720018062" />
-    <state width="1493" height="196" key="GridCell.Tab.1.left" timestamp="1585720018061">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="391" key="GridCell.Tab.1.center/0.0.1792.1120@0.0.1792.1120" timestamp="1585721470001" />
+    <state width="1750" height="391" key="GridCell.Tab.1.center/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900513" />
+    <state width="1750" height="391" key="GridCell.Tab.1.left" timestamp="1585754900512">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1585720018061" />
-    <state width="1493" height="196" key="GridCell.Tab.1.right" timestamp="1585720018062">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="391" key="GridCell.Tab.1.left/0.0.1792.1120@0.0.1792.1120" timestamp="1585721470000" />
+    <state width="1750" height="391" key="GridCell.Tab.1.left/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900512" />
+    <state width="1750" height="391" key="GridCell.Tab.1.right" timestamp="1585754900513">
+      <screen x="0" y="23" width="1792" height="1014" />
     </state>
     <state width="1493" height="196" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1585720018062" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1585456680037">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1750" height="391" key="GridCell.Tab.1.right/0.0.1792.1120@0.0.1792.1120" timestamp="1585721470002" />
+    <state width="1750" height="391" key="GridCell.Tab.1.right/0.23.1792.1014@0.23.1792.1014" timestamp="1585754900513" />
+    <state x="543" y="313" key="com.intellij.ide.util.TipDialog" timestamp="1585758262873">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1585456680037" />
-    <state x="462" y="144" width="611" height="536" key="find.popup" timestamp="1585719415277">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="543" y="313" key="com.intellij.ide.util.TipDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1585758262873" />
+    <state x="539" y="196" width="713" height="729" key="find.popup" timestamp="1585721465160">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="462" y="144" width="611" height="536" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1585719415277" />
+    <state x="539" y="196" width="713" height="729" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585721465160" />
     <state x="209" y="55" key="new project wizard" timestamp="1585513870961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -254,10 +283,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585719400669" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1585719268464">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="503" y="197" width="784" height="922" key="search.everywhere.popup" timestamp="1585721490976">
+      <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1585719268464" />
+    <state x="503" y="197" width="784" height="922" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1585721490976" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -268,9 +298,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/chaos_router/chaos_router.go</url>
-          <line>73</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/tcp_client/tcp_client.go</url>
+          <line>9</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

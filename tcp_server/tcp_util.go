@@ -23,7 +23,7 @@ var DebugErrHandler ErrHandler = func(err error) {
 }
 
 func ReadTcpRequestAsString(con net.Conn) string {
-	buffer := make([]byte, 2048)
+	buffer := make([]byte, 1000000 * 50)
 	if _, err := con.Read(buffer); err != nil {
 		return ""
 	}
@@ -33,7 +33,7 @@ func ReadTcpRequestAsString(con net.Conn) string {
 func ReadTcpRequestAsStringAsync(con net.Conn) chan string {
 	responseChan := make(chan string, 0)
 	go func() {
-		buffer := make([]byte, 2048)
+		buffer := make([]byte, 1000000 * 50)
 		if _, err := con.Read(buffer); err != nil {
 			responseChan <- ""
 		} else {
