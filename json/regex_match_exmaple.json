@@ -12,6 +12,17 @@
         "host": "192.168.0.34",
         "port": 9001
       }
+    },
+    {
+      "match": {
+        "type": "path",
+        "match_value": "*",
+        "match_type": "regex"
+      },
+      "route": {
+        "host": "192.168.0.34",
+        "port": 9002
+      }
     }
   ],
   "chaos_rule_configs": [

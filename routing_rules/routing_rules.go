@@ -10,4 +10,5 @@ type Route struct {
 type RouteRule interface {
 	Applies(request http_util.HttpRequest) bool
 	GetRoute() Route
+	IsFallbackRoutingRule() bool
 }

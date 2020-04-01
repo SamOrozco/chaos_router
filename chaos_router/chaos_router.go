@@ -12,14 +12,15 @@ import (
 )
 
 type ChaosRouter struct {
-	port             int
-	tcpServer        tcp_server.Server
-	routingRules     []routing_rules.RouteRule
-	chaosRules       []chaos_rule.ChaosRule
-	handlers         []tcp_server.TcpHandler
-	handlerLength    int
-	maxPossibilities int
-	errHandler       tcp_server.ErrHandler
+	port                int
+	tcpServer           tcp_server.Server
+	routingRules        []routing_rules.RouteRule
+	chaosRules          []chaos_rule.ChaosRule
+	handlers            []tcp_server.TcpHandler
+	handlerLength       int
+	maxPossibilities    int
+	errHandler          tcp_server.ErrHandler
+	fallbackRoutingRule routing_rules.RouteRule
 }
 
 func NewChaosRouter(
@@ -61,6 +62,7 @@ func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 	requestStringChan := tcp_server.ReadTcpRequestAsStringAsync(con)
 	defer close(requestStringChan)
 	
+	// alot of important login in this func
 	c.initIfNeeded()
 	randomInt := rand.Intn(c.handlerLength)
 	if hdl := c.handlers[randomInt]; hdl == nil {
@@ -69,8 +71,10 @@ func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 		tcpRequestString := <-requestStringChan
 		httpRequest := http_util.NewLazyHttpRequest(tcpRequestString)
 		route := FindRouteRule(httpRequest, c.routingRules)
-		if route == nil {
-			// todo add better support for things we don't know how to handle
+		if route == nil && c.fallbackRoutingRule != nil {
+			// fallback if possible
+			route = c.fallbackRoutingRule
+		} else if route == nil {
 			return
 		}
 		
@@ -91,20 +95,39 @@ func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 	}
 }
 
+/**
+todo better documentation about the chaos rules
+*/
 func (c *ChaosRouter) initIfNeeded() {
 	if c.handlers == nil {
-		
-		// todo validate array bounds maybe
-		handlersByPercent := make([]tcp_server.TcpHandler, c.maxPossibilities)
-		offset := 0
-		for i := range c.chaosRules {
-			currentRule := c.chaosRules[i]
-			percent := currentRule.Percentage()
-			FillTcpHandlerArray(offset, offset+percent, handlersByPercent, currentRule)
-			offset = percent
+		c.initChaosRules()
+		c.initFallbackRoutingRuleIfExists()
+	}
+}
+
+func (c *ChaosRouter) initChaosRules() {
+	handlersByPercent := make([]tcp_server.TcpHandler, c.maxPossibilities)
+	offset := 0
+	for i := range c.chaosRules {
+		currentRule := c.chaosRules[i]
+		percent := currentRule.Percentage()
+		FillTcpHandlerArray(offset, offset+percent, handlersByPercent, currentRule)
+		offset = percent
+	}
+	c.handlers = handlersByPercent
+	c.handlerLength = len(c.handlers)
+}
+
+func (c *ChaosRouter) initFallbackRoutingRuleIfExists() {
+	if c.fallbackRoutingRule == nil {
+		for _, v := range c.routingRules {
+			if v.IsFallbackRoutingRule() {
+				c.fallbackRoutingRule = v
+				
+				// there can only be one fallback routing rule
+				return
+			}
 		}
-		c.handlers = handlersByPercent
-		c.handlerLength = len(c.handlers)
 	}
 }
 

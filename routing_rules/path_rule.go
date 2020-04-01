@@ -31,3 +31,7 @@ func (p PathRouteRule) Applies(request http_util.HttpRequest) bool {
 func (p PathRouteRule) GetRoute() Route {
 	return p.Route
 }
+
+func (p PathRouteRule) IsFallbackRoutingRule() bool {
+	return p.ruleValue == "*"
+}

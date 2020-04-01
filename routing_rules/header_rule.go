@@ -37,3 +37,7 @@ func (h HeaderRule) Applies(request http_util.HttpRequest) bool {
 func (h HeaderRule) GetRoute() Route {
 	return h.route
 }
+
+func (h HeaderRule) IsFallbackRoutingRule() bool {
+	return h.headerKey == "*" || h.headerVal == "*"
+}
