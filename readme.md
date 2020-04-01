@@ -98,7 +98,7 @@ The routing request consists of two objects, the match and the route.
     }
 }
 ```
-There are also **fallback** rules supported. If there is a host that doesn't have any routing rule associated you can assign a blanket rule, one that will catch all other requests and route them to the specified host and port.  If you notice as long as the `match_value`'s value is `*` it will be a catch all routing rule. **NOTE** you can only have one routing rule. 
+There are also **fallback** rules supported. If there is a host that doesn't have any routing rule associated you can assign a blanket rule, one that will catch all other requests and route them to the specified host and port.  If you notice as long as the `match_value`'s value is `*` it will be a catch all routing rule. **NOTE** you can only have one **fallback** routing rule. 
 ```
 {
     "type": "path",
