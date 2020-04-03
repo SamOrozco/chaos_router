@@ -21,6 +21,7 @@ type ChaosRouter struct {
 	maxPossibilities    int
 	errHandler          tcp_server.ErrHandler
 	fallbackRoutingRule routing_rules.RouteRule
+	requestCleaner      func(string) string
 }
 
 func NewChaosRouter(
@@ -29,6 +30,7 @@ func NewChaosRouter(
 	routingRules []routing_rules.RouteRule,
 	chaosRules []chaos_rule.ChaosRule,
 	errHandler tcp_server.ErrHandler,
+	requestCleaner func(val string) string,
 ) ChaosRouter {
 	rand.Seed(time.Now().UnixNano())
 	return ChaosRouter{
@@ -37,6 +39,7 @@ func NewChaosRouter(
 		routingRules:     routingRules,
 		chaosRules:       chaosRules,
 		errHandler:       errHandler,
+		requestCleaner: requestCleaner,
 	}
 }
 
@@ -93,6 +96,13 @@ func (c ChaosRouter) Handle(con net.Conn, errHandler *tcp_server.ErrHandler) {
 		<-requestStringChan
 		hdl.Handle(con, errHandler)
 	}
+}
+
+/**
+clean request string if needed before sent to routed server
+ */
+func (c ChaosRouter) cleanRequest(request string) string {
+	return c.requestCleaner(request)
 }
 
 /**

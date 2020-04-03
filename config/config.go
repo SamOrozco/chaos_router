@@ -60,7 +60,7 @@ func CreateChaosRouterFromConfig(config ChaosRouterConfig) chaos_router.ChaosRou
 	routeRuleConfig := config.RoutingRulesConfigs
 	routingRules := getRouteRuleFromConfig(routeRuleConfig)
 	chaosRules := getChaosRuleFromConfig(chaosRuleConfigs)
-	return chaos_router.NewChaosRouter(port, maxPoss, routingRules, chaosRules, tcp_server.DebugErrHandler)
+	return chaos_router.NewChaosRouter(port, maxPoss, routingRules, chaosRules, tcp_server.DebugErrHandler, chaos_router.NewHostHeaderCleaner())
 }
 
 func getChaosRuleFromConfig(configs []ChaosRuleConfig) []chaos_rule.ChaosRule {

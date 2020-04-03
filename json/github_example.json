@@ -1,0 +1,24 @@
+{
+  "port": 9002,
+  "max_possibilities": 100,
+  "routing_rules_configs": [
+    {
+      "match": {
+        "type": "path",
+        "match_value": "*",
+        "match_type": "equals"
+      },
+      "route": {
+        "host": "www.stackoverflow.com",
+        "port": 80
+      }
+    }
+  ],
+  "chaos_rule_configs": [
+    {
+      "percent": 10,
+      "response_status_code": 200,
+      "response_body": "success"
+    }
+  ]
+}

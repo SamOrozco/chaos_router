@@ -37,6 +37,7 @@ func ReadTcpRequestAsStringAsync(con net.Conn) chan string {
 		if _, err := con.Read(buffer); err != nil {
 			responseChan <- ""
 		} else {
+			println(string(buffer))
 			responseChan <- string(buffer)
 		}
 	}()
